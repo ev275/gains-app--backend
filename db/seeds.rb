@@ -5,11 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
-Exercise.destroy_all
-ExercisesLift.destroy_all
-Lift.destroy_all
-Sett.destroy_all
+# User.destroy_all
+# Exercise.destroy_all
+# ExercisesLift.destroy_all
+# Lift.destroy_all
+# Sett.destroy_all
 
 enrique = User.create(name: "Enrique", username: "enrique123", sex: "male", age: 19, weight: 187, height: 73)
 

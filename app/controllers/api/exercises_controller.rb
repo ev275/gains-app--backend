@@ -6,6 +6,11 @@ class Api::ExercisesController < ApplicationController
         render json: new_exercise
     end
 
+    def show
+        exercise = Exercise.find(params[:id])
+        
+        render json: exercise, serializer: ExerciseSerializer
+    end
 
     private
     def exercise_params

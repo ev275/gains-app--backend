@@ -28,7 +28,7 @@ gem 'rack-cors'
 
 gem 'active_model_serializers'
 
-gem 'byebug'
+# gem 'byebug'
 
 gem 'activerecord-reset-pk-sequence'
 

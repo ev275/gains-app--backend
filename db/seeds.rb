@@ -13,33 +13,33 @@
 
 enrique = User.create(name: "Enrique", username: "enrique123", sex: "male", age: 19, weight: 187, height: 73)
 
-legs1 = Exercise.create(name: "leg_day_1", user_id: enrique.id)
-chest_back1 = Exercise.create(name: "chest_back_1", user_id: enrique.id)
-arms1 = Exercise.create(name: "arms_1", user_id: enrique.id)
-legs2 = Exercise.create(name: "leg_day_2", user_id: enrique.id)
-chest_back2 = Exercise.create(name: "chest_back_2", user_id: enrique.id)
-arms2 = Exercise.create(name: "arms_2", user_id: enrique.id)
+legs1 = Exercise.create(name: "Leg Day", user_id: enrique.id)
+chest_back1 = Exercise.create(name: "Chest & Back", user_id: enrique.id)
+arms1 = Exercise.create(name: "Arms", user_id: enrique.id)
+# legs2 = Exercise.create(name: "leg_day_2", user_id: enrique.id)
+# chest_back2 = Exercise.create(name: "chest_back_2", user_id: enrique.id)
+# arms2 = Exercise.create(name: "arms_2", user_id: enrique.id)
 
-squat = Lift.create(name: "barbell_squat")
-leg_press = Lift.create(name: "leg_press")
+squat = Lift.create(name: "barbell squat")
+leg_press = Lift.create(name: "leg press")
 legs1.lifts << squat
 legs1.lifts << leg_press
-legs2.lifts << squat
-legs2.lifts << leg_press
+# legs2.lifts << squat
+# legs2.lifts << leg_press
 
 bench = Lift.create(name: "benchpress")
-pull = Lift.create(name: "incline_pull")
+pull = Lift.create(name: "incline pull")
 chest_back1.lifts << bench
 chest_back1.lifts << pull
-chest_back2.lifts << bench
-chest_back2.lifts << pull
+# chest_back2.lifts << bench
+# chest_back2.lifts << pull
 
 curl = Lift.create(name: "hammer curls")
 skull_crushers = Lift.create(name: "dumbell skull crushers")
 arms1.lifts << curl
-arms2.lifts << curl
+# arms2.lifts << curl
 arms1.lifts << skull_crushers
-arms2.lifts << skull_crushers
+# arms2.lifts << skull_crushers
 
 squat_set1 = Sett.create(lift_id: squat.id, reps: 8, weight: 225, true_reps: 8, true_weight: 225)
 squat_set2 = Sett.create(lift_id: squat.id, reps: 6, weight: 275, true_reps: 6, true_weight: 275)

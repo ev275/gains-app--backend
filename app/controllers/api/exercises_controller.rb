@@ -8,9 +8,18 @@ class Api::ExercisesController < ApplicationController
 
     def show
         exercise = Exercise.find(params[:id])
-        render json: exercise.lifts
+        render json: {name: exercise.name, lifts: exercise.lifts}, include: :setts
         # returns lifts and sets for this exercise
     end
+
+    def index
+        exercises = Exercise.all
+        # exercises.map do |exercise|
+        #     {id: exercise.id, name: exercise.name, lifts: exercise.lifts.map {|lift| {id: lift.id, name: lift.name, setts: lift.setts}}}
+        # end
+        render json: exercises, include: 'lifts.setts'
+    end
+
 
     private
     def exercise_params

@@ -8,7 +8,6 @@ class Api::ExercisesController < ApplicationController
 
     def show
         exercise = Exercise.find(params[:id])
-        
         render json: exercise.lifts
         # returns lifts and sets for this exercise
     end

@@ -20,6 +20,17 @@ class Api::ExercisesController < ApplicationController
         render json: exercises, include: 'lifts.setts'
     end
 
+    def update
+        exercise = Exercise.find(params[:id])
+        exercise.update(exercise_params)
+
+        render json: {name: exercise.name, lifts: exercise.lifts}, include: :setts
+    end
+
+    def destroy
+        exercise = Exercise.find(params[:id])
+        exercise.destroy
+    end
 
     private
     def exercise_params

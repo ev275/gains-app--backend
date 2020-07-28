@@ -11,7 +11,7 @@
 # Lift.destroy_all
 # Sett.destroy_all
 
-enrique = User.create(name: "Enrique", username: "enrique123", sex: "male", age: 19, weight: 187, height: 73)
+enrique = User.create(name: "Enrique", username: "enrique123", password: "password", sex: "male", age: 19, weight: 187, height: 73)
 
 legs1 = Exercise.create(name: "Leg Day", user_id: enrique.id)
 chest_back1 = Exercise.create(name: "Chest & Back", user_id: enrique.id)

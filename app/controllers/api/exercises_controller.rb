@@ -8,7 +8,7 @@ class Api::ExercisesController < ApplicationController
 
     def show
         exercise = Exercise.find(params[:id])
-        render json: {name: exercise.name, lifts: exercise.lifts}, include: :setts
+        render json: {id: exercise.id, name: exercise.name, lifts: exercise.lifts}, include: :setts
         # returns lifts and sets for this exercise
     end
 
@@ -24,12 +24,13 @@ class Api::ExercisesController < ApplicationController
         exercise = Exercise.find(params[:id])
         exercise.update(exercise_params)
 
-        render json: {name: exercise.name, lifts: exercise.lifts}, include: :setts
+        render json: {id: exercise.id, name: exercise.name, lifts: exercise.lifts}, include: :setts
     end
 
     def destroy
-        exercise = Exercise.find(params[:id])
-        exercise.destroy
+        # byebug
+        Exercise.destroy(params[:id])
+        # exercise.destroy
     end
 
     private

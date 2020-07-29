@@ -25,10 +25,13 @@ class Api::LiftsController < ApplicationController
     end
 
     def update
+        # byebug
         lift = Lift.find(params[:id])
+        lift.update(lift_params)
             reps_array = params[:reps].split(", ").map {|str| str.to_i}
             weights_array = params[:weights].split(", ").map {|str| str.to_i}
 
+            lift.setts.destroy_all
             z = 0
             while z < reps_array.size do
                 current_rep = reps_array[z]
@@ -37,12 +40,13 @@ class Api::LiftsController < ApplicationController
                     current_weight = weights_array[e]
                     # byebug
                     if z == e
-                        lift.setts[e].update(reps: current_rep, weight: current_weight)
+                        Sett.create(lift_id: lift.id, reps: current_rep, weight: current_weight)
                     end
                     e += 1
                 end
                 z += 1
             end
+
         render json: lift
     end
     private

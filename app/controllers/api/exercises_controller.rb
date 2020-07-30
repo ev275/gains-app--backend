@@ -1,7 +1,8 @@
 class Api::ExercisesController < ApplicationController
     def create
         # byebug
-        new_exercise = Exercise.create(exercise_params)
+        name = params[:name]
+        new_exercise = Exercise.create(name: name, user_id: @user.id)
 
         render json: new_exercise
     end
@@ -13,7 +14,8 @@ class Api::ExercisesController < ApplicationController
     end
 
     def index
-        exercises = Exercise.all
+        # byebug
+        exercises = @user.exercises
         # exercises.map do |exercise|
         #     {id: exercise.id, name: exercise.name, lifts: exercise.lifts.map {|lift| {id: lift.id, name: lift.name, setts: lift.setts}}}
         # end

@@ -10,14 +10,14 @@ class ApplicationController < ActionController::API
 
         headers = request.headers["Authorization"]
         token = headers.split(" ")[1]
-
+        # byebug
         begin
             user_id = JWT.decode(token, "Yale2020")[0]["user_id"]
-            user = User.find(user_id)
+            @user = User.find(user_id)
         rescue
-            user = nil
+            @user = nil
         end
         # byebug
-        render json: {error: "Please LogIn"} unless user
+        render json: {error: "Please LogIn"} unless @user
     end
 end

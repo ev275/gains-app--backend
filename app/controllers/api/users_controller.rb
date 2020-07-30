@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
     def create
         # byebug
         user = User.new(user_params)
-        byebug
+        # byebug
 
         if user.valid?
             user.save
